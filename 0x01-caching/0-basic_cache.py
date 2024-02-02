@@ -4,12 +4,12 @@ class BasicCache that inherits from BaseCaching and is a caching system
 """
 from typing import Any
 
-BaseCaching = __import__("base_caching").BaceCaching
+BaseCaching = __import__("base_caching").BaseCaching
 
 
 class BasicCache(BaseCaching):
     """
-    BasicCache that inherits from BaseCaching
+    Basic cache with no Limit
     """
 
     def __init__(self):
@@ -17,14 +17,14 @@ class BasicCache(BaseCaching):
 
     def get(self, key: Any) -> Any:
         """
-        Get a value from the cache by key
+        Get item by key
         """
         if key in self.cache_data:
             return self.cache_data[key]
 
     def put(self, key: Any, item: Any) -> None:
         """
-        Put a value
+        Put item by key into cache and frequency dictionary.
         """
         if key and item:
             self.cache_data[key] = item
