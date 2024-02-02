@@ -17,7 +17,7 @@ class LifoCache(BaseCaching):
         """
         Initialize the lifo caching class
         """
-        super.__init__()
+        super().__init__()
         self.queue = deque()
 
     def put(self, key: Any, item: Any) -> None:
