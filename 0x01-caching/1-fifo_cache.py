@@ -24,13 +24,14 @@ class FIFOCache(BaseCaching):
         if key is not None and item is not None:
             if key in self.cache_data:
                 self.queue.remove(key)
+
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 discard_key = self.queue.popleft()
                 del self.cache_data[discard_key]
                 print("DISCARD: {}".format(discard_key))
 
-        self.queue.append(key)
-        self.cache_data[key] = item
+            self.queue.append(key)
+            self.cache_data[key] = item
 
     def get(self, key: Any) -> Any:
         """
