@@ -34,7 +34,7 @@ class LRUCache(BaseCaching):
                 del self.cache_data[discard_key]
                 print("DISCARD: {}".format(discard_key))
 
-            self.order[key] = None
+            self.queue[key] = None
             self.cache_data[key] = item
 
     def get(self, key: Any) -> Any:
@@ -42,6 +42,6 @@ class LRUCache(BaseCaching):
         Get an item from the LRU cache
         """
         if key is not None and key in self.cache_data:
-            self.order.move_to_end(key)
+            self.queue.move_to_end(key)
             return self.cache_data[key]
         return None
