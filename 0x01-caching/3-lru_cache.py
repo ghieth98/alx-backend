@@ -11,12 +11,12 @@ BaseCaching = __import__("base_caching").BaseCaching
 
 class LRUCache(BaseCaching):
     """
-    This class implements the lifo caching
+    This class implements the LRU caching
     """
 
     def __init__(self):
         """
-        Initialize the lifo caching class
+        Initialize the LRU caching class
         """
         super().__init__()
         self.queue = OrderedDict()
@@ -30,7 +30,7 @@ class LRUCache(BaseCaching):
                 self.queue.move_to_end(key)
 
             elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                discard_key = self.queue.popitem(last=False)
+                discard_key, _ = self.queue.popitem(last=False)
                 del self.cache_data[discard_key]
                 print("DISCARD: {}".format(discard_key))
 
