@@ -42,6 +42,6 @@ class LRUCache(BaseCaching):
         Get an item from the LRU cache
         """
         if key is not None and key in self.cache_data:
-            self.move_to_end(key)
+            self.order.move_to_end(key)
             return self.cache_data[key]
         return None
