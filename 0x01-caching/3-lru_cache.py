@@ -39,7 +39,7 @@ class LIFOCache(BaseCaching):
 
     def get(self, key: Any) -> Any:
         """
-        Get an item from the lifo cache
+        Get an item from the LRU cache
         """
         if key is not None and key in self.cache_data:
             self.move_to_end(key)
