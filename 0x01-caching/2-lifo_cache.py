@@ -8,7 +8,7 @@ from typing import Any
 BaseCaching = __import__("base_caching").BaseCaching
 
 
-class LifoCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """
     This class implements the lifo caching
     """
